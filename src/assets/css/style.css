@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    
 }
 
 body{
@@ -9,4 +10,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+strong{
+    font-weight: 700;
 }

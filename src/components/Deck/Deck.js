@@ -6,9 +6,12 @@ import right from "../../assets/images/right.png";
 import wrong from "../../assets/images/wrong.png";
 import doubt from "../../assets/images/doubt.png";
 import arrow from "../../assets/images/setinha.png";
+import party from "../../assets/images/party.png";
+import sad from "../../assets/images/sad.png";
 
 export default function Deck() {
-   
+    const [status,setStatus]=React.useState([]);
+
     return (
         <div className="deck">
             <header>
@@ -18,20 +21,74 @@ export default function Deck() {
                 </div>
             </header>
             <main>
-                {cards.sort(randomNumber).map((card,index) => <Card question={card.question} answer={card.answer} index={index} key={index+1}/>)}
+                {cards.sort(randomNumber).map((card,index) => <Card status={status} setStatus={setStatus} question={card.question} answer={card.answer} index={index} key={index+1}/>)}
             </main>
             <footer>
+                <Footer status={status} />
             </footer>
         </div>
 
     );
 }
 
+function Footer({status}){
+    console.log(status);
+    const found = status.find(item => item === wrong);
 
-function Card({question, answer, index }) {
+    if (status.length===cards.length){
+        return (
+            <>
+                {(found===undefined)?
+                    <div className="result">
+                        <div>
+                            <img src={party} alt="party"/>
+                            <h2><strong>Parabéns!</strong></h2>
+                        </div>
+                        <div>
+                            Você não esqueceu de nenhum flashcard!
+                        </div>
+        
+                        <h2>{status.length}/{cards.length} CONCLUÍDOS</h2>
+                        <div className="status">{status.map(item=> <Status icon={item}  />)}</div>
+                    </div>
+                    :
+                    <div className="result">
+                        <div>
+                            <img src={sad} alt="sad"/>
+                            <h2><strong>Putz...</strong></h2>
+                        </div>
+                        <div>
+                        Ainda faltam alguns...Mas não desanime!
+                        </div>
+        
+                        <h2>{status.length}/{cards.length} CONCLUÍDOS</h2>
+                        <div className="status">{status.map(item=> <Status icon={item}  />)}</div>   
+                    </div>
+                }
+            </>
+            );
+    }
+    return (
+        <>
+            <h2>{status.length}/{cards.length} CONCLUÍDOS</h2>
+            <div className="status">{status.map(item=> <Status icon={item}  />)}</div>
+        </>
+       
+    );
+}
+
+function Status({icon}){
+    return(
+        <img src={icon} alt="icone" />
+    );
+}
+
+
+function Card({status, setStatus ,question, answer, index }) {
     const [step, setStep] = React.useState(1);
     const [icon,setIcon] = React.useState(play);
-    const [classColor,setClassColor]=React.useState(""); 
+    const [result, setResult]= React.useState("");
+    
    
 
     if (step === 1) {
@@ -61,7 +118,8 @@ function Card({question, answer, index }) {
                     {buttons.map(item=> <button className={item.class} onClick={() => {
                         setStep(4);
                         setIcon(item.icon);
-                        setClassColor(item.class);
+                        setResult(item.class);
+                        setStatus([...status,item.icon]);  
                         }} >{item.text}</button>)}
                 </div>
             </div>
@@ -72,7 +130,7 @@ function Card({question, answer, index }) {
         return (
             <div className="initial finished">
                 <div>
-                    <h2 className={classColor}>Pergunta {index + 1}</h2>
+                    <h2 className={result}>Pergunta {index + 1}</h2>
                     <img src={icon} alt="play" onClick={() => setStep(1)} />
                 </div>
             </div>
