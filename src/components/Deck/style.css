@@ -1,21 +1,43 @@
 .deck{
     width: 100%;
     height: 100%;
-    overflow-y: auto;
-}
-.deck header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 44px 65px 54px 60px;
+    position: absolute;
+    top:0;
+    left: 0;
+    overflow-y: auto;
+   
+}
+
+.deck header{
+    width: 100%;
+    height: 111px;
+    background-color: #FB6B6B;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.deck header div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 44px 65px 54px 60px;
     position: fixed;
     top:0;
     left:0;
+    right:0;
+    z-index: 1;
 }
 
 .deck header img{
     width: 52px;
     height: 60px;
+
+     
 }
 
 .deck header h1{
@@ -32,8 +54,158 @@
 }
 
 .deck main{
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 150px 0 179px 0;
 }
+
+.deck main h2{
+    font-family: 'Recursive';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #333333;
+}
+.deck main .initial div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.deck main .initial{
+    height: 65px;
+    width: 300px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+
+.deck main .initial:first-child{
+    margin-top: 150px;
+}
+
+.deck main .initial img{
+    width: 20px;
+    height: 23px;
+    cursor: pointer;
+}
+
+.deck main .question{
+    width: 299px;
+    height: 131px;
+    background: #FFFFD5;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    padding: 15px;
+    font-family: 'Recursive';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #333333;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.deck main .question:first-child{
+    margin-top: 150px;
+}
+
+.deck main .question img{
+    width: 30px;
+    height: 20px;
+    position: absolute;
+    right: 15px;
+    bottom: 6px;
+    cursor: pointer;
+}
+
+.deck main .answer{
+    width: 299px;
+    min-height: 131px;
+    height: fit-content;
+    background: #FFFFD5;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    padding: 15px;
+    font-family: 'Recursive';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #333333;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.deck main .answer:first-child{
+    margin-top: 150px;
+}
+
+.deck main .answer .buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.deck main .answer .buttons div{
+    width: 85.17px;
+    height: 37.17px;
+    border-radius: 5px;
+}
+
+.buttons button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    width: 85.17px;
+    height: 37.17px;
+    border-radius: 5px;
+    font-family: 'Recursive';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 10px;
+    cursor: pointer;
+
+}
+
+.buttons .wrong{
+    background-color: #FF3030;
+}
+
+.finished h2.wrong{
+    color: #FF3030;
+    text-decoration: line-through;
+    text-decoration-color: #FF3030;
+}
+
+.buttons .right{
+    background-color:#2FBE34;
+}
+
+.finished h2.right{
+    color:#2FBE34;
+    text-decoration: line-through;
+    text-decoration-color: #2FBE34;
+}
+
+.buttons .doubt{
+    background-color: #FF922E;
+}
+
+.finished h2.doubt{
+    color: #FF922E;
+    text-decoration: line-through;
+    text-decoration-color: #FF922E;
+}
+
+
 
 .deck footer{
     width: 100%;
@@ -47,3 +219,4 @@
     line-height: 22px;
     color: #333333;
 }
+

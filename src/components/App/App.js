@@ -11,7 +11,7 @@ export default function App() {
     return (
         <>
             {!init ?
-                <Menu setInit={setInit} />
+                <Menu init= {init} setInit={setInit} />
                 :
                 <Deck />
             }
