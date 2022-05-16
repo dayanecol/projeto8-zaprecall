@@ -132,7 +132,7 @@ function Card({status, setStatus ,question, answer, index }) {
             <div className="initial finished">
                 <div>
                     <h2 className={result}>Pergunta {index + 1}</h2>
-                    <img src={icon} alt="play" onClick={() => setStep(1)} />
+                    <img src={icon} alt="icon"  />
                 </div>
             </div>
         );

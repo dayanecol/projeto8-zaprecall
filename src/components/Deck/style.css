@@ -58,7 +58,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 150px 0 179px 0;
+    margin-top: 150px;
+    margin-bottom: 1700px;    
 }
 
 .deck main h2{
@@ -87,6 +88,7 @@
 
 .deck main .initial:first-child{
     margin-top: 150px;
+    
 }
 
 .deck main .initial img{
@@ -283,6 +285,7 @@
     justify-content: center;
     color: #FFFFFF;
     margin: 5px 0 21px 0;
+    cursor: pointer;
 }
 
 
@@ -290,8 +293,17 @@
     .deck main .initial,.deck main .question, .deck main .answer{
         width: 567.12px;
         height: 91.74px;
+        
     }
 
+    .deck main{
+        margin-top: 600px;
+    }
+}
 
+@media (max-width: 400px) {
+    .deck main{
+        margin-top: 400px;
+    }
 }
 
