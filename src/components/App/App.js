@@ -13,7 +13,7 @@ export default function App() {
             {!init ?
                 <Menu init= {init} setInit={setInit} />
                 :
-                <Deck />
+                <Deck init= {init} setInit={setInit}/>
             }
         </>
     );

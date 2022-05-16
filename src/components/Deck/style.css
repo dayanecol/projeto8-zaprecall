@@ -268,3 +268,30 @@
 
 }
 
+.deck footer .reinit{
+    border: none;
+    width: 167px;
+    height: 32px;
+    background-color: #FB6B6B;
+    border-radius: 5px;
+    font-family: 'Recursive';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    margin: 5px 0 21px 0;
+}
+
+
+@media (min-width:768px){
+    .deck main .initial,.deck main .question, .deck main .answer{
+        width: 567.12px;
+        height: 91.74px;
+    }
+
+
+}
+

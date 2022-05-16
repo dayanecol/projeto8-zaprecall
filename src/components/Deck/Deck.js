@@ -9,7 +9,7 @@ import arrow from "../../assets/images/setinha.png";
 import party from "../../assets/images/party.png";
 import sad from "../../assets/images/sad.png";
 
-export default function Deck() {
+export default function Deck({init,setInit}) {
     const [status,setStatus]=React.useState([]);
 
     return (
@@ -24,15 +24,14 @@ export default function Deck() {
                 {cards.sort(randomNumber).map((card,index) => <Card status={status} setStatus={setStatus} question={card.question} answer={card.answer} index={index} key={index+1}/>)}
             </main>
             <footer>
-                <Footer status={status} />
+                <Footer status={status} init= {init} setInit={setInit}/>
             </footer>
         </div>
 
     );
 }
 
-function Footer({status}){
-    console.log(status);
+function Footer({status,init, setInit}){
     const found = status.find(item => item === wrong);
 
     if (status.length===cards.length){
@@ -50,6 +49,7 @@ function Footer({status}){
         
                         <h2>{status.length}/{cards.length} CONCLUÍDOS</h2>
                         <div className="status">{status.map(item=> <Status icon={item}  />)}</div>
+                        <button className="reinit" onClick={()=>setInit(!init)}>REINICIAR RECALL</button>
                     </div>
                     :
                     <div className="result">
@@ -62,7 +62,8 @@ function Footer({status}){
                         </div>
         
                         <h2>{status.length}/{cards.length} CONCLUÍDOS</h2>
-                        <div className="status">{status.map(item=> <Status icon={item}  />)}</div>   
+                        <div className="status">{status.map(item=> <Status icon={item}  />)}</div>
+                        <button className="reinit" onClick={()=>setInit(!init)}>REINICIAR RECALL</button>   
                     </div>
                 }
             </>
